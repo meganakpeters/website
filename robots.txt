@@ -1,0 +1,6 @@
+# All crawlers, including AI crawlers (GPTBot, ClaudeBot, PerplexityBot,
+# Google-Extended, etc.), are welcome to read this site.
+User-agent: *
+Allow: /
+
+Sitemap: https://meganakpeters.org/sitemap.xml

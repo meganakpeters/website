@@ -5,13 +5,66 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Megan A. K. Peters</title>
 <meta name="description" content="Megan A. K. Peters — cognitive neuroscientist studying how minds monitor their own knowledge, uncertainty, and experience. Lecturer at UCL, Associate Professor at UC Irvine, and President & Co-Founder of Neuromatch.">
+<link rel="canonical" href="https://meganakpeters.org/">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="author" content="Megan A. K. Peters">
+<meta name="theme-color" content="#2d3142">
+
+<!-- Open Graph -->
 <meta property="og:title" content="Megan A. K. Peters">
 <meta property="og:description" content="Cognitive neuroscientist studying metacognition, uncertainty, and consciousness. University College London · UC Irvine · Neuromatch.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://meganakpeters.org">
+<meta property="og:url" content="https://meganakpeters.org/">
+<meta property="og:site_name" content="Megan A. K. Peters">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://meganakpeters.org/megan.jpg">
+<meta property="og:image:width" content="1000">
+<meta property="og:image:height" content="1185">
+<meta property="og:image:alt" content="Megan A. K. Peters">
+
+<!-- Twitter / X card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Megan A. K. Peters">
+<meta name="twitter:description" content="Cognitive neuroscientist studying metacognition, uncertainty, and consciousness. UCL · UC Irvine · Neuromatch.">
+<meta name="twitter:image" content="https://meganakpeters.org/megan.jpg">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,500&family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<!-- Structured data: schema.org Person -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Megan A. K. Peters",
+  "givenName": "Megan",
+  "familyName": "Peters",
+  "url": "https://meganakpeters.org/",
+  "image": "https://meganakpeters.org/megan.jpg",
+  "jobTitle": ["Lecturer", "Associate Professor"],
+  "worksFor": [
+    { "@type": "CollegeOrUniversity", "name": "University College London", "url": "https://www.ucl.ac.uk/" },
+    { "@type": "CollegeOrUniversity", "name": "University of California, Irvine", "url": "https://www.uci.edu/" },
+    { "@type": "Organization", "name": "Neuromatch, Inc.", "url": "https://www.neuromatch.io/" }
+  ],
+  "alumniOf": { "@type": "CollegeOrUniversity", "name": "University of California, Los Angeles" },
+  "knowsAbout": ["Cognitive neuroscience", "Metacognition", "Consciousness", "Uncertainty", "Computational modeling", "NeuroAI"],
+  "identifier": {
+    "@type": "PropertyValue",
+    "propertyID": "ORCID",
+    "value": "https://orcid.org/0000-0002-0248-0816"
+  },
+  "sameAs": [
+    "https://orcid.org/0000-0002-0248-0816",
+    "https://scholar.google.com/citations?hl=en&user=ErvkcKcAAAAJ",
+    "https://www.linkedin.com/in/megan-peters-58a86133/",
+    "https://bsky.app/profile/meganakpeters.bsky.social",
+    "https://www.reflexionlab.io/"
+  ]
+}
+</script>
+
 <style>
   :root{
     --ink:#2d3142;
@@ -196,9 +249,11 @@
     .stats{grid-template-columns:repeat(2,1fr)}
     .cards{grid-template-columns:1fr}
     .nav-links{
-      position:fixed;inset:0 0 0 auto;width:min(280px,78vw);
+      position:fixed;top:0;right:0;left:auto;bottom:auto;
+      height:100vh;height:100dvh;width:min(280px,78vw);
       background:var(--paper);border-left:2px solid var(--ink);
       flex-direction:column;padding:90px 30px;gap:26px;
+      overflow-y:auto;z-index:55;
       transform:translateX(100%);transition:transform .3s ease;
     }
     .nav-links.open{transform:translateX(0)}
@@ -243,6 +298,7 @@
       </div>
       <div class="socials">
         <a href="https://scholar.google.com/citations?hl=en&user=ErvkcKcAAAAJ" target="_blank" rel="noopener">Google Scholar</a>
+        <a href="https://orcid.org/0000-0002-0248-0816" target="_blank" rel="noopener">ORCID</a>
         <a href="https://bsky.app/profile/meganakpeters.bsky.social" target="_blank" rel="noopener">Bluesky</a>
         <a href="https://www.linkedin.com/in/megan-peters-58a86133/" target="_blank" rel="noopener">LinkedIn</a>
       </div>
@@ -269,7 +325,7 @@
 <!-- RESEARCH -->
 <section class="research" id="research">
   <div class="inner" style="padding-top:96px;padding-bottom:96px">
-    <p class="eyebrow">The science</p>
+    <p class="eyebrow">Research and scientific practice</p>
     <h2 class="sect">The Reflexion Lab:<br>Studying how minds know<br>themselves.</h2>
     <div class="prose">
       <p>I lead the <a href="https://www.reflexionlab.io/">Reflexion Lab</a>, a group of interdisciplinary researchers seeking to understand how intelligent systems monitor and model their own knowledge, uncertainty, and experience.</p>
