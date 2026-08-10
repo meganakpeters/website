@@ -115,6 +115,7 @@
   }
   .nav-links a:hover::after{width:100%}
   .nav-toggle{display:none;background:none;border:none;font-size:26px;cursor:pointer;color:var(--ink)}
+  .nav-overlay{display:none}
 
   /* ---------- LAYOUT ---------- */
   section{max-width:var(--maxw);margin:0 auto;padding:96px 24px}
@@ -244,6 +245,10 @@
 
   /* ---------- RESPONSIVE ---------- */
   @media(max-width:860px){
+    /* Drop the blur on mobile: backdrop-filter on a sticky bar causes
+       stale layout after device rotation and distorts fixed children
+       in mobile Chromium. A near-opaque bar looks the same in practice. */
+    nav{backdrop-filter:none;-webkit-backdrop-filter:none;background:rgba(242,241,244,.97)}
     .hero-grid{grid-template-columns:1fr;gap:40px}
     .portrait{justify-self:start;order:-1}
     .stats{grid-template-columns:repeat(2,1fr)}
@@ -258,6 +263,12 @@
     }
     .nav-links.open{transform:translateX(0)}
     .nav-links a{font-size:18px}
+    .nav-overlay{
+      display:block;position:fixed;inset:0;z-index:49;
+      background:rgba(13,13,15,.4);
+      opacity:0;visibility:hidden;transition:opacity .3s ease;
+    }
+    .nav-overlay.open{opacity:1;visibility:visible}
     .nav-toggle{display:block;z-index:60}
     section{padding:72px 24px}
   }
@@ -268,7 +279,7 @@
 <nav>
   <div class="nav-inner">
     <a href="#top" class="brand" style="text-decoration:none">Megan A. K. Peters<span class="dot">.</span></a>
-    <button class="nav-toggle" aria-label="Menu" onclick="document.getElementById('navlinks').classList.toggle('open')">☰</button>
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="navlinks" onclick="toggleNav()">☰</button>
     <ul class="nav-links" id="navlinks">
       <li><a href="#about" onclick="closeNav()">About</a></li>
       <li><a href="#research" onclick="closeNav()">Research</a></li>
@@ -278,6 +289,7 @@
     </ul>
   </div>
 </nav>
+<div class="nav-overlay" id="navoverlay" onclick="closeNav()"></div>
 
 <!-- HERO -->
 <section class="hero" id="top">
@@ -409,7 +421,35 @@
 
 <script>
   document.getElementById('yr').textContent = new Date().getFullYear();
-  function closeNav(){document.getElementById('navlinks').classList.remove('open')}
+
+  var navLinks = document.getElementById('navlinks');
+  var navOverlay = document.getElementById('navoverlay');
+  var navToggle = document.querySelector('.nav-toggle');
+
+  function openNav(){
+    navLinks.classList.add('open');
+    navOverlay.classList.add('open');
+    navToggle.setAttribute('aria-expanded', 'true');
+  }
+  function closeNav(){
+    navLinks.classList.remove('open');
+    navOverlay.classList.remove('open');
+    navToggle.setAttribute('aria-expanded', 'false');
+  }
+  function toggleNav(){
+    navLinks.classList.contains('open') ? closeNav() : openNav();
+  }
+
+  // Close on Escape
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape') closeNav();
+  });
+
+  // Reset menu state when leaving mobile width (e.g. rotating to landscape),
+  // so nothing is left in a half-open state when the layout switches back.
+  window.addEventListener('resize', function(){
+    if (window.innerWidth > 860) closeNav();
+  });
 </script>
 </body>
 </html>
