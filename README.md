@@ -9,7 +9,22 @@ Personal website for Megan A. K. Peters. A single, self-contained `index.html` f
 - `index.html` — the entire website
 - `megan.jpg` — your photo (you still need to add this; see below)
 - `CNAME` — tells GitHub which domain to serve (created for you during setup, step 6)
+- `robots.txt` / `sitemap.xml` — SEO files for search/AI crawlers
 - `README.md` — this guide
+
+---
+
+## Updating the Media section
+
+The Media section lives near the bottom of `index.html`, marked by `<!-- MEDIA -->`. It has two parts:
+
+**The featured video** (the big embed). To swap it, change the YouTube ID in one place — find `data-yt="..."` and replace the ID (the part after `v=` in a YouTube URL). Update the two lines just below it: the `<img src="https://i.ytimg.com/vi/VIDEO_ID/hqdefault.jpg">` thumbnail (use the same ID) and the title/blurb in `.feature-meta`. The player loads only when a visitor clicks, so it stays fast.
+
+**The link cards.** Each item is one `<div class="card">…</div>` block with four things to edit: the small label (`<span class="k">`), the title (`<h3>`), the one-line blurb (`<p>`), and the link (`<a href="…">`). To add an item, copy an existing card block and edit those four fields; to remove one, delete its block. Keep every link's `target="_blank" rel="noopener"` so it opens in a new tab.
+
+Keep the section tight — a handful of the highest-impact items. The full archive is linked at the bottom via "See all media on the Reflexion Lab site."
+
+> One gotcha: use straight quotes (`"`) in the HTML, not curly ones (`"`). Some text editors auto-convert them, which breaks the markup. If a section loses its styling after an edit, a curly quote in an attribute is the usual cause.
 
 ---
 
